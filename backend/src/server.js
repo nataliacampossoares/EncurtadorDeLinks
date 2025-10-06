@@ -1,5 +1,5 @@
 import Fastify from "fastify";
-import { linkRoutes } from "./routes/link.route.js";
+import { linkRoutes } from "./modules/routes/link.route.js";
 
 const app = Fastify({
   logger: true,

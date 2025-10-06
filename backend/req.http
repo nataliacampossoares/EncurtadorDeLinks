@@ -1,0 +1,21 @@
+### Variables 
+@url = http://localhost:3000/api
+
+### GET users
+GET {{url}}/links HTTP/1.1
+
+# ### POST users
+# POST {{url}}/users HTTP/1.1
+# Content-Type: application/json
+# Authorization: Bearer ACCESS-TOKEN
+
+# {
+#    "name":"Tenali Ramakrishna",
+#    "gender":"Male",
+#    "email":"tenali.ramakrishna@15ce.com",
+#    "status":"Active"
+# }
+
+### GET categories
+GET {{url}}/categories HTTP/1.1
+fbe-kffn-auj
