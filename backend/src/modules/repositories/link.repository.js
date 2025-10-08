@@ -1,12 +1,12 @@
-import { dbPool } from "../../infra/database.js";
+import db from "../../infra/database.js";
+import { linksTable } from "../../infra/db/schema.js";
 
 export class LinkRepository {
   constructor() {
-    this.db = dbPool;
+    this.db = db;
   }
 
   async findAll() {
-    const result = await this.db.query("SELECT * FROM links");
-    return result.rows;
+    return this.db.select().from(linksTable);
   }
 }
