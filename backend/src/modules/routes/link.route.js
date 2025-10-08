@@ -10,4 +10,8 @@ export async function linkRoutes(fastify, options) {
   fastify.get("/links", async (request, reply) => {
     return controller.getLinks(request, reply);
   });
+
+  fastify.post("/links", async (request, reply) => {
+    return controller.createLink(request, reply);
+  });
 }

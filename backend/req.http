@@ -1,17 +1,14 @@
 ### Variables 
 @url = http://localhost:3000/api
 
-### GET users
+### GET links
 GET {{url}}/links
 
-# ### POST users
-# POST {{url}}/users HTTP/1.1
-# Content-Type: application/json
-# Authorization: Bearer ACCESS-TOKEN
+### POST links
+POST {{url}}/links HTTP/1.1
+Content-Type: application/json
 
-# {
-#    "name":"Tenali Ramakrishna",
-#    "gender":"Male",
-#    "email":"tenali.ramakrishna@15ce.com",
-#    "status":"Active"
-# }
+{
+  "url_original": "https://example.com2",
+  "legenda": "Legenda do meu Link"
+}

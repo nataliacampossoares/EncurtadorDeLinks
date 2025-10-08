@@ -7,6 +7,22 @@ export class LinkRepository {
   }
 
   async findAll() {
-    return this.db.select().from(linksTable);
+    return await this.db.select().from(linksTable);
+  }
+
+  async create({ url_original, legenda, codigo }) {
+    const result = await this.db
+      .insert(linksTable)
+      .values({
+        id: crypto.randomUUID(),
+        codigo,
+        legenda,
+        urlOriginal: url_original,
+        dataCriacao: new Date().toISOString(),
+        numeroCliques: 0,
+      })
+      .returning();
+
+    return result[0];
   }
 }
