@@ -22,4 +22,8 @@ export async function linkRoutes(fastify, options) {
   fastify.get("/links/:id", async (request, reply) => {
     return controller.getLinkById(request, reply);
   });
+
+  fastify.put("/links/:id", async (request, reply) => {
+    return controller.updateLink(request, reply);
+  });
 }

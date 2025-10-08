@@ -18,9 +18,9 @@ export class LinkRepository {
         id: crypto.randomUUID(),
         codigo,
         legenda,
-        urlOriginal: url_original,
-        dataCriacao: new Date().toISOString(),
-        numeroCliques: 0,
+        url_original,
+        data_criacao: new Date().toISOString(),
+        numero_cliques: 0,
       })
       .returning();
 
@@ -37,6 +37,16 @@ export class LinkRepository {
       .from(linksTable)
       .where(eq(linksTable.id, id))
       .limit(1);
+
+    return result[0];
+  }
+
+  async update(id, { url_original, legenda, codigo }) {
+    const result = await this.db
+      .update(linksTable)
+      .set({ url_original, legenda, codigo })
+      .where(eq(linksTable.id, id))
+      .returning();
 
     return result[0];
   }

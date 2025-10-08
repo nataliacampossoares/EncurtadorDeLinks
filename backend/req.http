@@ -14,7 +14,20 @@ Content-Type: application/json
 }
 
 ### GET links/:id
-GET {{url}}/links/14002d0b-3050-4bbf-943b-224b1b61e50c
+GET {{url}}/links/be05d2b6-e4ab-4c0c-a93e-a7d2f7782b8e
 
 ### DELETE links/:id
 DELETE {{url}}/links/14002d0b-3050-4bbf-943b-224b1b61e50c
+
+### PUT links/:id
+PUT {{url}}/links/be05d2b6-e4ab-4c0c-a93e-a7d2f7782b8e
+Content-Type: application/json
+
+{
+  "url_original": "https://example.com",
+  "legenda": "Legenda do meu Link",
+  "codigo": "WKRRnb",
+  "data_criacao": "2025-10-08 13:50:35.408",
+  "numero_cliques": 0,
+  "id": "be05d2b6-e4ab-4c0c-a93e-a7d2f7782b8e"
+}

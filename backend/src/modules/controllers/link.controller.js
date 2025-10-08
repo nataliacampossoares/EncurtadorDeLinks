@@ -25,4 +25,11 @@ export class LinkController {
     const data = await this.service.getLinkById(id);
     reply.status(200).send({ data });
   }
+
+  async updateLink(request, reply) {
+    const { id } = request.params;
+    const payload = request.body;
+    const data = await this.service.updateLink(id, payload);
+    reply.status(200).send({ data });
+  }
 }

@@ -12,7 +12,6 @@ export class LinkService {
 
   async createLink({ url_original, legenda }) {
     const result = linkSchema.safeParse({ url_original, legenda });
-
     if (!result.success) {
       throw new Error(result.error.issues.map((err) => err.message).join(", "));
     }
@@ -33,5 +32,21 @@ export class LinkService {
       throw new Error("Link não encontrado");
     }
     return link;
+  }
+
+  async updateLink(id, payload) {
+    if (id !== payload.id) {
+      throw new Error("ID do link não corresponde ao ID do payload");
+    }
+
+    // Verifica se o link existe
+    await this.getLinkById(id);
+
+    const result = linkSchema.safeParse(payload);
+    if (!result.success) {
+      throw new Error(result.error.issues.map((err) => err.message).join(", "));
+    }
+
+    return await this.linkRepository.update(id, payload);
   }
 }
