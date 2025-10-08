@@ -1,3 +1,4 @@
+import { eq } from "drizzle-orm";
 import db from "../../infra/database.js";
 import { linksTable } from "../../infra/db/schema.js";
 
@@ -22,6 +23,20 @@ export class LinkRepository {
         numeroCliques: 0,
       })
       .returning();
+
+    return result[0];
+  }
+
+  async delete(id) {
+    await this.db.delete(linksTable).where(eq(linksTable.id, id));
+  }
+
+  async getById(id) {
+    const result = await this.db
+      .select()
+      .from(linksTable)
+      .where(eq(linksTable.id, id))
+      .limit(1);
 
     return result[0];
   }

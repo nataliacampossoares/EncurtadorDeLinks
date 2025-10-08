@@ -21,4 +21,17 @@ export class LinkService {
 
     return await this.linkRepository.create({ url_original, legenda, codigo });
   }
+
+  async deleteLink(id) {
+    await this.getLinkById(id);
+    return await this.linkRepository.delete(id);
+  }
+
+  async getLinkById(id) {
+    const link = await this.linkRepository.getById(id);
+    if (!link) {
+      throw new Error("Link não encontrado");
+    }
+    return link;
+  }
 }

@@ -12,3 +12,9 @@ Content-Type: application/json
   "url_original": "https://example.com2",
   "legenda": "Legenda do meu Link"
 }
+
+### GET links/:id
+GET {{url}}/links/14002d0b-3050-4bbf-943b-224b1b61e50c
+
+### DELETE links/:id
+DELETE {{url}}/links/14002d0b-3050-4bbf-943b-224b1b61e50c

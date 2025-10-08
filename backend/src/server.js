@@ -2,7 +2,7 @@ import Fastify from "fastify";
 import { linkRoutes } from "./modules/routes/link.route.js";
 
 const app = Fastify({
-  logger: true,
+  logger: false,
 });
 
 app.register(linkRoutes, { prefix: "/api" });
