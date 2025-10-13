@@ -5,7 +5,7 @@ const app = Fastify({
   logger: false,
 });
 
-app.register(linkRoutes, { prefix: "/api" });
+app.register(linkRoutes);
 
 try {
   await app.listen({ port: 3000 });

@@ -50,4 +50,14 @@ export class LinkRepository {
 
     return result[0];
   }
+
+  async getByCode(code) {
+    const result = await this.db
+      .select()
+      .from(linksTable)
+      .where(eq(linksTable.codigo, code))
+      .limit(1);
+
+    return result[0];
+  }
 }

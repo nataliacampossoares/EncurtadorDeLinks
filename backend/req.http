@@ -1,5 +1,6 @@
 ### Variables 
-@url = http://localhost:3000/api
+@endereco = http://localhost:3000
+@url = {{endereco}}/api
 
 ### GET links
 GET {{url}}/links
@@ -9,25 +10,28 @@ POST {{url}}/links HTTP/1.1
 Content-Type: application/json
 
 {
-  "url_original": "https://example.com2",
-  "legenda": "Legenda do meu Link"
+  "url_original": "https://letroso.com/pt/daily",
+  "legenda": "LETROSO"
 }
 
 ### GET links/:id
 GET {{url}}/links/be05d2b6-e4ab-4c0c-a93e-a7d2f7782b8e
 
 ### DELETE links/:id
-DELETE {{url}}/links/14002d0b-3050-4bbf-943b-224b1b61e50c
+DELETE {{url}}/links/be05d2b6-e4ab-4c0c-a93e-a7d2f7782b8e
 
 ### PUT links/:id
-PUT {{url}}/links/be05d2b6-e4ab-4c0c-a93e-a7d2f7782b8e
+PUT {{url}}/links/9e7b7e98-d877-4854-9795-145ee8e25287
 Content-Type: application/json
 
 {
   "url_original": "https://example.com",
-  "legenda": "Legenda do meu Link",
+  "legenda": "Legenda do meu Link natalia",
   "codigo": "WKRRnb",
   "data_criacao": "2025-10-08 13:50:35.408",
   "numero_cliques": 0,
-  "id": "be05d2b6-e4ab-4c0c-a93e-a7d2f7782b8e"
+  "id": "9e7b7e98-d877-4854-9795-145ee8e25287"
 }
+
+### REDIRECT /:code
+GET {{endereco}}/fB1lbS

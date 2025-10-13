@@ -7,23 +7,27 @@ const service = new LinkService(repository);
 const controller = new LinkController(service);
 
 export async function linkRoutes(fastify, options) {
-  fastify.get("/links", async (request, reply) => {
+  fastify.get("/api/links", async (request, reply) => {
     return controller.getLinks(request, reply);
   });
 
-  fastify.post("/links", async (request, reply) => {
+  fastify.post("/api/links", async (request, reply) => {
     return controller.createLink(request, reply);
   });
 
-  fastify.delete("/links/:id", async (request, reply) => {
+  fastify.delete("/api/links/:id", async (request, reply) => {
     return controller.deleteLink(request, reply);
   });
 
-  fastify.get("/links/:id", async (request, reply) => {
+  fastify.get("/api/links/:id", async (request, reply) => {
     return controller.getLinkById(request, reply);
   });
 
-  fastify.put("/links/:id", async (request, reply) => {
+  fastify.put("/api/links/:id", async (request, reply) => {
     return controller.updateLink(request, reply);
+  });
+
+  fastify.get("/:code", async (request, reply) => {
+    return controller.redirectToURL(request, reply);
   });
 }

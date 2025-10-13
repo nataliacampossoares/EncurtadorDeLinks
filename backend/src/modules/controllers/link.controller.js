@@ -32,4 +32,10 @@ export class LinkController {
     const data = await this.service.updateLink(id, payload);
     reply.status(200).send({ data });
   }
+
+  async redirectToURL(request, reply) {
+    const { code } = request.params;
+    const url = await this.service.getOriginalURL(code);
+    reply.redirect(url);
+  }
 }

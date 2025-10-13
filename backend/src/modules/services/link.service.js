@@ -49,4 +49,12 @@ export class LinkService {
 
     return await this.linkRepository.update(id, payload);
   }
+
+  async getOriginalURL(code) {
+    const link = await this.linkRepository.getByCode(code);
+    if (!link) {
+      throw new Error("Link não encontrado");
+    }
+    return link.url_original;
+  }
 }
