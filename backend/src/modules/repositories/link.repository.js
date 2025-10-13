@@ -41,10 +41,10 @@ export class LinkRepository {
     return result[0];
   }
 
-  async update(id, { url_original, legenda, codigo }) {
+  async update(id, { url_original, legenda, codigo, numero_cliques }) {
     const result = await this.db
       .update(linksTable)
-      .set({ url_original, legenda, codigo })
+      .set({ url_original, legenda, codigo, numero_cliques })
       .where(eq(linksTable.id, id))
       .returning();
 

@@ -11,11 +11,11 @@ Content-Type: application/json
 
 {
   "url_original": "https://letroso.com/pt/daily",
-  "legenda": "LETROSO"
+  "legenda": "LETROSO 2"
 }
 
 ### GET links/:id
-GET {{url}}/links/be05d2b6-e4ab-4c0c-a93e-a7d2f7782b8e
+GET {{url}}/links/5696a565-c9e9-421f-9c6b-6e72c7a156e4
 
 ### DELETE links/:id
 DELETE {{url}}/links/be05d2b6-e4ab-4c0c-a93e-a7d2f7782b8e
@@ -34,4 +34,4 @@ Content-Type: application/json
 }
 
 ### REDIRECT /:code
-GET {{endereco}}/fB1lbS
+GET {{endereco}}/5sh123

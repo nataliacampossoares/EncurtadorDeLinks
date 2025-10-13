@@ -1,5 +1,10 @@
-import { nanoid } from "nanoid";
+import { customAlphabet } from "nanoid";
 import { linkSchema } from "../../schemas/link.schema.js";
+
+const nanoid = customAlphabet(
+  "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  6
+);
 
 export class LinkService {
   constructor(linkRepository) {
@@ -16,7 +21,7 @@ export class LinkService {
       throw new Error(result.error.issues.map((err) => err.message).join(", "));
     }
 
-    const codigo = nanoid(6);
+    const codigo = nanoid();
 
     return await this.linkRepository.create({ url_original, legenda, codigo });
   }
@@ -56,5 +61,14 @@ export class LinkService {
       throw new Error("Link não encontrado");
     }
     return link.url_original;
+  }
+
+  async incrementAccessCount(code) {
+    const link = await this.linkRepository.getByCode(code);
+    if (!link) {
+      throw new Error("Link não encontrado");
+    }
+    link.numero_cliques += 1;
+    await this.linkRepository.update(link.id, link);
   }
 }

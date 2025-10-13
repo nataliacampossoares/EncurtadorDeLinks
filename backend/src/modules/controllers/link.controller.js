@@ -35,7 +35,8 @@ export class LinkController {
 
   async redirectToURL(request, reply) {
     const { code } = request.params;
+    this.service.incrementAccessCount(code);
     const url = await this.service.getOriginalURL(code);
-    reply.redirect(url);
+    reply.status(302).redirect(url);
   }
 }
