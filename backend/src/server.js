@@ -1,3 +1,4 @@
+import { fastifyCors } from "@fastify/cors";
 import Fastify from "fastify";
 import { linkRoutes } from "./modules/routes/link.route.js";
 
@@ -6,6 +7,10 @@ const app = Fastify({
 });
 
 app.register(linkRoutes);
+app.register(fastifyCors, {
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+});
 
 app.setErrorHandler((error, _, reply) => {
   const statusCode = error.statusCode ?? 500;
