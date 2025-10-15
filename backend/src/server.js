@@ -17,7 +17,11 @@ app.setErrorHandler((error, _, reply) => {
 });
 
 try {
-  await app.listen({ port: 3000 });
+  app.listen({ port: process.env.PORT || 8080 }).then(() => {
+    console.log(
+      `Server running at http://localhost:${process.env.PORT || 8080}`
+    );
+  });
 } catch (err) {
   app.log.error(err);
   process.exit(1);
