@@ -11,8 +11,8 @@ export class LinkService {
     this.linkRepository = linkRepository;
   }
 
-  async getAllLinks() {
-    return await this.linkRepository.findAll();
+  async getAllLinks(legenda) {
+    return await this.linkRepository.findAll(legenda);
   }
 
   async createLink({ url_original, legenda }) {

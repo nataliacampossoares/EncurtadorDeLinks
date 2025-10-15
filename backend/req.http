@@ -11,7 +11,7 @@ Content-Type: application/json
 
 {
   "url_original": "https://letroso.com/pt/daily",
-  "legenda": "LETROSO 2"
+  "legenda": "LETROSO natinha"
 }
 
 ### GET links/:id
@@ -35,3 +35,6 @@ Content-Type: application/json
 
 ### REDIRECT /:code
 GET {{endereco}}/5sh123
+
+### GET links?legenda=natinha
+GET {{url}}/links?legenda=natinha

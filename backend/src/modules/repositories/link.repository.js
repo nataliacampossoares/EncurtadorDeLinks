@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq, ilike } from "drizzle-orm";
 import db from "../../infra/database.js";
 import { linksTable } from "../../infra/db/schema.js";
 
@@ -7,7 +7,13 @@ export class LinkRepository {
     this.db = db;
   }
 
-  async findAll() {
+  async findAll(legenda) {
+    if (legenda) {
+      return await this.db
+        .select()
+        .from(linksTable)
+        .where(ilike(linksTable.legenda, `%${legenda}%`));
+    }
     return await this.db.select().from(linksTable);
   }
 

@@ -4,7 +4,8 @@ export class LinkController {
   }
 
   async getLinks(request, reply) {
-    const data = await this.service.getAllLinks();
+    const legenda = request.query.legenda;
+    const data = await this.service.getAllLinks(legenda);
     reply.send({ data });
   }
 
