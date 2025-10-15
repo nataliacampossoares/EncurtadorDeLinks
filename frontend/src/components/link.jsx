@@ -4,7 +4,7 @@ import { Calendar, ChartColumn, Edit, ExternalLink } from "lucide-react";
 import NextLink from "next/link";
 import CopyButton from "./action-buttons/copy-button";
 import DeleteButton from "./action-buttons/delete-button";
-import Button from "./button";
+import UpdateButton from "./action-buttons/update-button";
 
 export default function Link({ link }) {
   const url_encurtada = process.env.NEXT_PUBLIC_API_URL + "/" + link.codigo;
@@ -35,13 +35,7 @@ export default function Link({ link }) {
       <hr className="text-stone-300" />
       <div className="flex items-center gap-2 mt-2">
         <CopyButton text={url_encurtada} />
-        <Button
-          className={
-            "flex items-center gap-2 bg-stone-200 hover:bg-stone-300  h-10 px-3 cursor-pointer"
-          }
-        >
-          <Edit size={16} />
-        </Button>
+        <UpdateButton link={link} />
         <DeleteButton linkId={link.id} />
       </div>
     </div>
