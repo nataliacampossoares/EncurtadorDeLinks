@@ -1,7 +1,14 @@
-import Button from "./button";
+"use client";
+
+import { useState } from "react";
+import PostButton from "./action-buttons/post-button";
 import Input from "./input";
 
 export default function EncurtadorForm() {
+
+  const [legenda, setLegenda] = useState("");
+  const [url_original, setUrlOriginal] = useState("");
+
   return (
     <form className="flex flex-col gap-4 w-full max-w-3xl mx-auto px-4">
       <Input
@@ -9,6 +16,7 @@ export default function EncurtadorForm() {
         type="text"
         placeholder="Ex: Meu portfólio, Site da empresa..."
         label="Legenda do link *"
+        onChange={(e) => setLegenda(e.target.value)}
         required
       />
       <div className="flex gap-3 items-end">
@@ -17,9 +25,10 @@ export default function EncurtadorForm() {
           type="url"
           placeholder="https://exemplo.com/sua-url-muito-longa..."
           label="URL para encurtar *"
+          onChange={(e) => setUrlOriginal(e.target.value)}
           required
         />
-        <Button className="px-8 cursor-pointer text-white">Encurtar</Button>
+        <PostButton legenda={legenda} url_original={url_original}/>
       </div>
     </form>
   );
