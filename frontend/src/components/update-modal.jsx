@@ -1,9 +1,8 @@
 "use client";
 
-import { revalidateLinks } from "@/utils/revalidate-links";
+import { useState } from "react";
 import Button from "./button";
 import Input from "./input";
-import { useState } from "react";
 
 export default function UpdateModal({ link, open, setOpen }) {
   const [loading, setLoading] = useState(false);
@@ -35,7 +34,7 @@ export default function UpdateModal({ link, open, setOpen }) {
       }
 
       if (data) {
-        await revalidateLinks();
+        window.location.reload();
         setOpen(false);
       } else {
         alert("Erro ao atualizar o link. Tente novamente.");

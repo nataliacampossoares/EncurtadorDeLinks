@@ -10,7 +10,7 @@ export default function Input({ name, label, className, ...props }) {
         id={name}
         name={name}
         className={cn(
-          "border border-zinc-300 rounded-lg text-sm h-12 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500",
+          "bg-white border border-zinc-300 rounded-lg text-sm h-12 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500",
           className
         )}
         {...props}

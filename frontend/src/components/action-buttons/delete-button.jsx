@@ -1,6 +1,5 @@
 "use client";
 
-import { revalidateLinks } from "@/utils/revalidate-links";
 import { Trash2 } from "lucide-react";
 import Button from "../button";
 
@@ -14,7 +13,7 @@ export default function DeleteButton({ linkId }) {
         }
       );
       if (!response.ok) alert("Erro ao excluir o link. Tente novamente.");
-      else revalidateLinks();
+      else window.location.reload();
     } catch (error) {
       console.error(error);
       alert("Erro ao excluir o link. Tente novamente.");

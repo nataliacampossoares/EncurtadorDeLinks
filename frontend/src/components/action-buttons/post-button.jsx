@@ -1,6 +1,5 @@
 "use client";
 
-import { revalidateLinks } from "@/utils/revalidate-links";
 import Button from "../button";
 
 export default function PostButton({ legenda, url_original }) {
@@ -24,7 +23,7 @@ export default function PostButton({ legenda, url_original }) {
       }
 
       if (!response.ok) alert("Erro ao postar o link. Tente novamente.");
-      else revalidateLinks();
+      else window.location.reload();
     } catch (error) {
       console.error(error);
       alert("Erro ao postar o link. Tente novamente.");
