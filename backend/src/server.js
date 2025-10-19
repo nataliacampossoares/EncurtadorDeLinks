@@ -21,11 +21,11 @@ app.setErrorHandler((error, _, reply) => {
   });
 });
 
+const port = process.env.PORT || 8080;
+
 try {
-  app.listen({ port: process.env.PORT || 8080 }).then(() => {
-    console.log(
-      `Server running at http://localhost:${process.env.PORT || 8080}`
-    );
+  app.listen({ host: "0.0.0.0", port }).then(() => {
+    console.log(`Server running at http://localhost:${port}/api`);
   });
 } catch (err) {
   app.log.error(err);
